@@ -5,6 +5,8 @@
  */
 package frontend;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Abyan
@@ -27,21 +29,47 @@ public class MenuAwal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
         Btn_Keluar = new javax.swing.JButton();
         Btn_Masuk = new javax.swing.JButton();
         Btn_History = new javax.swing.JButton();
         Btn_Laporan = new javax.swing.JButton();
         Btn_TmbBaru = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        MenuQuit = new javax.swing.JMenuItem();
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Btn_Keluar.setText("Barang Keluar");
+        Btn_Keluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_KeluarActionPerformed(evt);
+            }
+        });
 
         Btn_Masuk.setText("Barang Masuk");
+        Btn_Masuk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_MasukActionPerformed(evt);
+            }
+        });
 
         Btn_History.setText("History Barang");
+        Btn_History.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_HistoryActionPerformed(evt);
+            }
+        });
 
         Btn_Laporan.setText("Laporan Hari ini");
+        Btn_Laporan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_LaporanActionPerformed(evt);
+            }
+        });
 
         Btn_TmbBaru.setText("Tambah Barang Baru");
         Btn_TmbBaru.addActionListener(new java.awt.event.ActionListener() {
@@ -49,6 +77,21 @@ public class MenuAwal extends javax.swing.JFrame {
                 Btn_TmbBaruActionPerformed(evt);
             }
         });
+
+        jMenu1.setText("Quit");
+
+        MenuQuit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
+        MenuQuit.setText("Quit");
+        MenuQuit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuQuitActionPerformed(evt);
+            }
+        });
+        jMenu1.add(MenuQuit);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -83,7 +126,7 @@ public class MenuAwal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Btn_History, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Btn_Laporan, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
 
         pack();
@@ -91,7 +134,44 @@ public class MenuAwal extends javax.swing.JFrame {
 
     private void Btn_TmbBaruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_TmbBaruActionPerformed
         // TODO add your handling code here:
+        new TambahBaru().setVisible(true);
+        dispose();
     }//GEN-LAST:event_Btn_TmbBaruActionPerformed
+
+    private void Btn_MasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_MasukActionPerformed
+        // TODO add your handling code here:
+        new BarangMasuk().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_Btn_MasukActionPerformed
+
+    private void Btn_KeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_KeluarActionPerformed
+        // TODO add your handling code here:
+//        new .setVisible(true);
+//        dispose();
+    }//GEN-LAST:event_Btn_KeluarActionPerformed
+
+    private void Btn_HistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_HistoryActionPerformed
+        // TODO add your handling code here:
+        new HistoryBarang().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_Btn_HistoryActionPerformed
+
+    private void Btn_LaporanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_LaporanActionPerformed
+        // TODO add your handling code here:
+        new LaporanAkhir().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_Btn_LaporanActionPerformed
+
+    private void MenuQuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuQuitActionPerformed
+        // TODO add your handling code here:
+        Object options[] = {"Ya", "Tidak"};
+        int result = JOptionPane.showOptionDialog(this, "Apakah anda ingin keluar?", "Konfirmasi",
+            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
+            null, options, options[1]);
+        if(result == JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_MenuQuitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,5 +214,9 @@ public class MenuAwal extends javax.swing.JFrame {
     private javax.swing.JButton Btn_Laporan;
     private javax.swing.JButton Btn_Masuk;
     private javax.swing.JButton Btn_TmbBaru;
+    private javax.swing.JMenuItem MenuQuit;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
 }
