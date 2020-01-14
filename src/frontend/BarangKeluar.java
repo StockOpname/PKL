@@ -11,12 +11,12 @@ import javax.swing.JOptionPane;
  *
  * @author Abyan
  */
-public class BarangMasuk extends javax.swing.JFrame {
+public class BarangKeluar extends javax.swing.JFrame {
 
     /**
      * Creates new form BarangMasuk
      */
-    public BarangMasuk() {
+    public BarangKeluar() {
         initComponents();
     }
 
@@ -62,25 +62,25 @@ public class BarangMasuk extends javax.swing.JFrame {
         jLabel2.setText("Tanggal");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
-        jLabel10.setText("Barang Masuk");
+        jLabel10.setText("Barang Keluar");
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton1.setText("+");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Kode Barang", "Nama Barang", "Quantity", "Satuan", "Gudang Masuk", "Gudang Keluar", "Keterangan"
+                "Kode Barang", "Nama Barang", "Quantity", "Satuan", "Gudang Keluar", "Keterangan"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -93,14 +93,13 @@ public class BarangMasuk extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(0).setMaxWidth(90);
             jTable1.getColumnModel().getColumn(1).setMinWidth(180);
             jTable1.getColumnModel().getColumn(1).setMaxWidth(180);
-            jTable1.getColumnModel().getColumn(2).setMinWidth(60);
-            jTable1.getColumnModel().getColumn(2).setMaxWidth(60);
+            jTable1.getColumnModel().getColumn(2).setMinWidth(80);
+            jTable1.getColumnModel().getColumn(2).setMaxWidth(80);
             jTable1.getColumnModel().getColumn(3).setMinWidth(50);
             jTable1.getColumnModel().getColumn(3).setMaxWidth(50);
             jTable1.getColumnModel().getColumn(4).setResizable(false);
-            jTable1.getColumnModel().getColumn(5).setResizable(false);
-            jTable1.getColumnModel().getColumn(6).setMinWidth(280);
-            jTable1.getColumnModel().getColumn(6).setMaxWidth(180);
+            jTable1.getColumnModel().getColumn(5).setMinWidth(380);
+            jTable1.getColumnModel().getColumn(5).setMaxWidth(180);
         }
 
         jMenu1.setText("Menu");
@@ -174,7 +173,7 @@ public class BarangMasuk extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(346, 864, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel1))
@@ -183,14 +182,14 @@ public class BarangMasuk extends javax.swing.JFrame {
                             .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(70, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 968, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton1)
                         .addGap(111, 111, 111)))
                 .addGap(36, 36, 36))
             .addGroup(layout.createSequentialGroup()
-                .addGap(453, 453, 453)
+                .addGap(456, 456, 456)
                 .addComponent(jLabel10)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -211,7 +210,7 @@ public class BarangMasuk extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(58, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(552, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(56, 56, 56))
         );
@@ -244,7 +243,7 @@ public class BarangMasuk extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-        new BarangMasuk().setVisible(true);
+        new BarangKeluar().setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
@@ -276,20 +275,21 @@ public class BarangMasuk extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BarangMasuk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BarangKeluar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BarangMasuk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BarangKeluar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BarangMasuk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BarangKeluar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BarangMasuk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BarangKeluar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BarangMasuk().setVisible(true);
+                new BarangKeluar().setVisible(true);
             }
         });
     }
