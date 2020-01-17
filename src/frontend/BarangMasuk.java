@@ -20,6 +20,13 @@ public class BarangMasuk extends javax.swing.JFrame {
         initComponents();
     }
 
+    public void simpan(){
+        
+    }
+    
+    public void edit(){
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -267,7 +274,7 @@ public class BarangMasuk extends javax.swing.JFrame {
 
     private void BtnPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPlusActionPerformed
         // TODO add your handling code here:
-        new TambahBaru().setVisible(true);
+        new TambahBarangMasuk().setVisible(true);
         dispose();
     }//GEN-LAST:event_BtnPlusActionPerformed
 

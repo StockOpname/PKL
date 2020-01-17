@@ -146,8 +146,8 @@ public class MenuAwal extends javax.swing.JFrame {
 
     private void Btn_KeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_KeluarActionPerformed
         // TODO add your handling code here:
-//        new .setVisible(true);
-//        dispose();
+        new BarangKeluar().setVisible(true);
+        dispose();
     }//GEN-LAST:event_Btn_KeluarActionPerformed
 
     private void Btn_HistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_HistoryActionPerformed

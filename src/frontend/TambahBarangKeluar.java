@@ -11,12 +11,12 @@ import javax.swing.JOptionPane;
  *
  * @author Abyan
  */
-public class TambahBaru extends javax.swing.JFrame {
+public class TambahBarangKeluar extends javax.swing.JFrame {
 
     /**
      * Creates new form TambahBaru
      */
-    public TambahBaru() {
+    public TambahBarangKeluar() {
         initComponents();
     }
 
@@ -32,17 +32,20 @@ public class TambahBaru extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        TxtKodeBrg = new javax.swing.JTextField();
+        TxtNmaBrg = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         Btn_Smp = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
+        TxtStn = new javax.swing.JTextField();
+        TxtGdngKlr = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
+        TxtQnty = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TxtKtrng = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -64,19 +67,16 @@ public class TambahBaru extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jLabel4.setText("Satuan");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
-        jLabel5.setText("Gudang Masuk");
-
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jLabel6.setText("Gudang Keluar");
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
-        jTextField1.setName(""); // NOI18N
-        jTextField1.setRequestFocusEnabled(false);
+        TxtKodeBrg.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
+        TxtKodeBrg.setName(""); // NOI18N
+        TxtKodeBrg.setRequestFocusEnabled(false);
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
-        jTextField2.setName(""); // NOI18N
-        jTextField2.setRequestFocusEnabled(false);
+        TxtNmaBrg.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
+        TxtNmaBrg.setName(""); // NOI18N
+        TxtNmaBrg.setRequestFocusEnabled(false);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton1.setText("+");
@@ -86,17 +86,27 @@ public class TambahBaru extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel1.setText("Tambah Baru");
 
-        jTextField6.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
-        jTextField6.setName(""); // NOI18N
-        jTextField6.setRequestFocusEnabled(false);
+        TxtStn.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
+        TxtStn.setName(""); // NOI18N
+        TxtStn.setRequestFocusEnabled(false);
 
-        jTextField9.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
-        jTextField9.setName(""); // NOI18N
-        jTextField9.setRequestFocusEnabled(false);
+        TxtGdngKlr.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
+        TxtGdngKlr.setName(""); // NOI18N
+        TxtGdngKlr.setRequestFocusEnabled(false);
 
-        jTextField10.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
-        jTextField10.setName(""); // NOI18N
-        jTextField10.setRequestFocusEnabled(false);
+        TxtQnty.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
+        TxtQnty.setName(""); // NOI18N
+        TxtQnty.setRequestFocusEnabled(false);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
+        jLabel7.setText("Quantity");
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
+        jLabel8.setText("Keterangan");
+
+        TxtKtrng.setColumns(20);
+        TxtKtrng.setRows(5);
+        jScrollPane1.setViewportView(TxtKtrng);
 
         jMenu1.setText("Menu");
 
@@ -166,38 +176,40 @@ public class TambahBaru extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(260, 260, 260)
+                        .addComponent(Btn_Smp)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1)
+                        .addGap(72, 72, 72))
+                    .addComponent(jSeparator1))
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8))
                 .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TxtNmaBrg)
+                    .addComponent(TxtKodeBrg)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(0, 42, Short.MAX_VALUE))
-                            .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField9)
-                            .addComponent(jTextField10))
-                        .addGap(135, 135, 135))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Btn_Smp)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(82, 82, 82))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jSeparator1)
-                .addContainerGap())
+                        .addComponent(jLabel1)
+                        .addGap(0, 42, Short.MAX_VALUE))
+                    .addComponent(TxtStn, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(TxtGdngKlr)
+                    .addComponent(TxtQnty)
+                    .addComponent(jScrollPane1))
+                .addGap(135, 135, 135))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,30 +219,34 @@ public class TambahBaru extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtKodeBrg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtNmaBrg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(TxtQnty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtStn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtGdngKlr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Btn_Smp, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(52, 52, 52))
         );
 
         pack();
@@ -294,20 +310,23 @@ public class TambahBaru extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TambahBaru.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TambahBarangKeluar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TambahBaru.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TambahBarangKeluar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TambahBaru.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TambahBarangKeluar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TambahBaru.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TambahBarangKeluar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TambahBaru().setVisible(true);
+                new TambahBarangKeluar().setVisible(true);
             }
         });
     }
@@ -315,13 +334,20 @@ public class TambahBaru extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_Smp;
     private javax.swing.JMenuItem MenuQuit;
+    private javax.swing.JTextField TxtGdngKlr;
+    private javax.swing.JTextField TxtKodeBrg;
+    private javax.swing.JTextArea TxtKtrng;
+    private javax.swing.JTextField TxtNmaBrg;
+    private javax.swing.JTextField TxtQnty;
+    private javax.swing.JTextField TxtStn;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -330,11 +356,7 @@ public class TambahBaru extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }
