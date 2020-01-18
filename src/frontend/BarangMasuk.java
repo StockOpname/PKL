@@ -45,7 +45,9 @@ public class BarangMasuk extends javax.swing.JFrame {
         jTextField9 = new javax.swing.JTextField();
         BtnPlus = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTable_BrngMsk = new javax.swing.JTable();
+        jButton_Update = new javax.swing.JButton();
+        jButton_Delete = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -79,7 +81,7 @@ public class BarangMasuk extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable_BrngMsk.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -90,30 +92,39 @@ public class BarangMasuk extends javax.swing.JFrame {
             new String [] {
                 "Kode Barang", "Nama Barang", "Quantity", "Satuan", "Gudang Masuk", "Gudang Keluar", "Keterangan"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+        ));
+        jTable_BrngMsk.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable_BrngMskMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setMinWidth(90);
-            jTable1.getColumnModel().getColumn(0).setMaxWidth(90);
-            jTable1.getColumnModel().getColumn(1).setMinWidth(180);
-            jTable1.getColumnModel().getColumn(1).setMaxWidth(180);
-            jTable1.getColumnModel().getColumn(2).setMinWidth(60);
-            jTable1.getColumnModel().getColumn(2).setMaxWidth(60);
-            jTable1.getColumnModel().getColumn(3).setMinWidth(50);
-            jTable1.getColumnModel().getColumn(3).setMaxWidth(50);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
-            jTable1.getColumnModel().getColumn(5).setResizable(false);
-            jTable1.getColumnModel().getColumn(6).setMinWidth(280);
-            jTable1.getColumnModel().getColumn(6).setMaxWidth(180);
+        jScrollPane2.setViewportView(jTable_BrngMsk);
+        if (jTable_BrngMsk.getColumnModel().getColumnCount() > 0) {
+            jTable_BrngMsk.getColumnModel().getColumn(0).setMinWidth(90);
+            jTable_BrngMsk.getColumnModel().getColumn(0).setMaxWidth(90);
+            jTable_BrngMsk.getColumnModel().getColumn(1).setMinWidth(180);
+            jTable_BrngMsk.getColumnModel().getColumn(1).setMaxWidth(180);
+            jTable_BrngMsk.getColumnModel().getColumn(2).setMinWidth(60);
+            jTable_BrngMsk.getColumnModel().getColumn(2).setMaxWidth(60);
+            jTable_BrngMsk.getColumnModel().getColumn(3).setMinWidth(50);
+            jTable_BrngMsk.getColumnModel().getColumn(3).setMaxWidth(50);
+            jTable_BrngMsk.getColumnModel().getColumn(6).setMinWidth(280);
+            jTable_BrngMsk.getColumnModel().getColumn(6).setMaxWidth(180);
         }
+
+        jButton_Update.setText("Update");
+        jButton_Update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_UpdateActionPerformed(evt);
+            }
+        });
+
+        jButton_Delete.setText("Delete");
+        jButton_Delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_DeleteActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Menu");
 
@@ -184,7 +195,7 @@ public class BarangMasuk extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(70, Short.MAX_VALUE)
+                .addContainerGap(76, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,8 +208,11 @@ public class BarangMasuk extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1016, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(BtnPlus)
-                        .addGap(111, 111, 111)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(BtnPlus)
+                            .addComponent(jButton_Update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton_Delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(87, 87, 87)))
                 .addGap(36, 36, 36))
             .addGroup(layout.createSequentialGroup()
                 .addGap(453, 453, 453)
@@ -223,7 +237,11 @@ public class BarangMasuk extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 451, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(167, 167, 167)
+                        .addComponent(jButton_Update)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton_Delete)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(BtnPlus)))
                 .addGap(56, 56, 56))
         );
@@ -278,6 +296,18 @@ public class BarangMasuk extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_BtnPlusActionPerformed
 
+    private void jTable_BrngMskMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_BrngMskMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable_BrngMskMouseClicked
+
+    private void jButton_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_UpdateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_UpdateActionPerformed
+
+    private void jButton_DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_DeleteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -316,6 +346,8 @@ public class BarangMasuk extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnPlus;
     private javax.swing.JMenuItem MenuQuit;
+    private javax.swing.JButton jButton_Delete;
+    private javax.swing.JButton jButton_Update;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -329,8 +361,7 @@ public class BarangMasuk extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable_BrngMsk;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;

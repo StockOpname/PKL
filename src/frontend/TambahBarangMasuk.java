@@ -340,16 +340,16 @@ public class TambahBarangMasuk extends javax.swing.JFrame {
         if (TxtKodeBrg.getText().equals("")||TxtNmaBrg.getText().equals("")||TxtGdngMsk.getText().equals("")||TxtGdngKlr.getText().equals("")||TxtStn.getText().equals("")||TxtQnty.getText().equals("")||TxtKtrng.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Field Harus Diisi Semua");
         }else{
-        barang.setIdBarang(Integer.parseInt(TxtKodeBrg.getText()));
+        barang.setKodeBarang(Integer.parseInt(TxtKodeBrg.getText()));
         barang.setNamaBarang(TxtNmaBrg.getText());
-        barang.setGudangMasuk(TxtGdngMsk.getText());
-        barang.setGudangKeluar(TxtGdngKlr.getText());
-        barang.setQuantity(Integer.parseInt(TxtQnty.getText()));
-        barang.setSatuan(Integer.parseInt(TxtStn.getText()));
+        barang.setgudang_masuk(TxtGdngMsk.getText());
+        barang.setgudang_keluar(TxtGdngKlr.getText());
+        barang.setQty(Integer.parseInt(TxtQnty.getText()));
+        barang.setSatuan(TxtStn.getText());
         barang.setKeterangan(TxtKtrng.getText());
         barang.save();
         
-//        TxtKodeBrg.setText(Integer.toString(barang.getIdBarang()));
+        TxtKodeBrg.setText(Integer.toString(barang.getKodeBarang()));
 //        tampilkanData();
         }
     }//GEN-LAST:event_Btn_SmpActionPerformed
