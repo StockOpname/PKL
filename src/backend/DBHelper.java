@@ -15,67 +15,30 @@ import javax.swing.JOptionPane;
  */
 public class DBHelper {
     private static Connection koneksi;
-    public static Connection bukaKoneksi()     
+    public static Connection getKoneksi()     
      {
           if(koneksi == null){ 
               try{
-                  String url = "jdbc:mysql://localhost:3306/";
+                  String url = "jdbc:mysql://localhost:3306/test_stock";
                   String user = "root";
                   String password = "";
                   DriverManager.registerDriver(new com.mysql.jdbc.Driver());
                   koneksi = (Connection) DriverManager.getConnection(url, user, password);
+                  JOptionPane.showMessageDialog(null, "Koneksi Sukses!!");
               }          
               catch (SQLException t){
                   JOptionPane.showMessageDialog(null, "Koneksi Error, hubungkan database");
               }   
           }
-        return null;
-     }
-     
-      public static int insertQueryGetId(String query){ 
-          bukaKoneksi();
-          int num = 0;
-          int result = -1; 
-          
-          try{ 
-              Statement stmt = koneksi.createStatement();
-              num = stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS); 
- 
-              ResultSet rs = stmt.getGeneratedKeys();
-              
-              if (rs.next()){
-                  result = rs.getInt(1);
-              }
-              rs.close();  
-              stmt.close(); 
-          }
-          catch (Exception e){
-              e.printStackTrace();
-              result = -1;       
-              System.out.println(query);
-          }
-          return result;
-          
-     }
-      
-      public static boolean executeQuery(String query){
-          bukaKoneksi();
-          boolean result = false;
-          
-          try{
-              Statement stmt = koneksi.createStatement();
-              stmt.executeUpdate(query);
-              result = true;
-              stmt.close();
-          }         
-          catch (Exception e){
-              e.printStackTrace();
-          }                  
-          return result;     
-      }
-      
-      public static ResultSet selectQuery(String query){
-          bukaKoneksi();
+        return koneksi;
+    }
+    
+    public static void main(String[] args){
+        Connection koneksi = new DBHelper().getKoneksi();
+    }
+    
+    public static ResultSet selectQuery(String query){
+          getKoneksi();
           ResultSet rs = null;
           
           try{
@@ -86,5 +49,5 @@ public class DBHelper {
               e.printStackTrace();
           }
           return rs;
-      } 
+      }
 }

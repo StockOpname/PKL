@@ -4,8 +4,12 @@
  * and open the template in the editor.
  */
 package frontend;
-
+import backend.Barang;
+import backend.TambahBaru;
+import backend.DBHelper;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,8 +22,28 @@ public class BarangMasuk extends javax.swing.JFrame {
      */
     public BarangMasuk() {
         initComponents();
+        tampilkanData();
     }
 
+    public void tampilkanData(){
+        String[] kolom = {"kode_barang", "nama_barang", "Qty", "satuan", "gudang_masuk", "gudang_keluar", "keterangan"};
+        ArrayList<Barang> list = new Barang().getAll();
+        Object rowData[] = new Object[6];
+        
+        jTable_BrngMsk.setModel(new DefaultTableModel(new Object[][] {}, kolom));
+        
+        for(int i =0; i<list.size(); i++){
+            rowData[0] = list.get(i).getNama_barang();
+            rowData[1] = list.get(i).getQty();
+            rowData[2] = list.get(i).getSatuan();
+            rowData[3] = list.get(i).getGudang_masuk();
+            rowData[4] = list.get(i).getGudang_keluar();
+            rowData[5] = list.get(i).getKeterangan();
+            
+            ((DefaultTableModel)jTable_BrngMsk.getModel()).addRow(rowData);
+        }
+    }
+    
     public void simpan(){
         
     }
@@ -72,6 +96,12 @@ public class BarangMasuk extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel10.setText("Barang Masuk");
+
+        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField8ActionPerformed(evt);
+            }
+        });
 
         BtnPlus.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         BtnPlus.setText("+");
@@ -296,10 +326,6 @@ public class BarangMasuk extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_BtnPlusActionPerformed
 
-    private void jTable_BrngMskMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_BrngMskMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTable_BrngMskMouseClicked
-
     private void jButton_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_UpdateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton_UpdateActionPerformed
@@ -307,6 +333,15 @@ public class BarangMasuk extends javax.swing.JFrame {
     private void jButton_DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DeleteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton_DeleteActionPerformed
+
+    private void jTable_BrngMskMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_BrngMskMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable_BrngMskMouseClicked
+
+    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTextField8ActionPerformed
 
     /**
      * @param args the command line arguments

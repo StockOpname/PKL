@@ -134,7 +134,7 @@ public class MenuAwal extends javax.swing.JFrame {
 
     private void Btn_TmbBaruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_TmbBaruActionPerformed
         // TODO add your handling code here:
-        new TambahBaru().setVisible(true);
+        new FrmTambahBaru().setVisible(true);
         dispose();
     }//GEN-LAST:event_Btn_TmbBaruActionPerformed
 

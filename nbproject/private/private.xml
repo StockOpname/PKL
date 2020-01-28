@@ -4,13 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/Book%20JTI/Magang%20proyek/Stock_Opname/src/frontend/MenuAwal.java</file>
-            <file>file:/D:/Book%20JTI/Magang%20proyek/Stock_Opname/src/frontend/LaporanAkhir.java</file>
-            <file>file:/D:/Book%20JTI/Magang%20proyek/Stock_Opname/src/frontend/TambahBarangKeluar.java</file>
-            <file>file:/D:/Book%20JTI/Magang%20proyek/Stock_Opname/src/frontend/BarangKeluar.java</file>
             <file>file:/D:/Book%20JTI/Magang%20proyek/Stock_Opname/src/frontend/TambahBarangMasuk.java</file>
-            <file>file:/D:/Book%20JTI/Magang%20proyek/Stock_Opname/src/frontend/TambahBaru.java</file>
+            <file>file:/D:/Book%20JTI/Magang%20proyek/Stock_Opname/src/backend/TambahBaru.java</file>
+            <file>file:/D:/Book%20JTI/Magang%20proyek/Stock_Opname/src/backend/DBHelper.java</file>
+            <file>file:/D:/Book%20JTI/Magang%20proyek/Stock_Opname/src/backend/Barang.java</file>
             <file>file:/D:/Book%20JTI/Magang%20proyek/Stock_Opname/src/frontend/BarangMasuk.java</file>
-            <file>file:/D:/Book%20JTI/Magang%20proyek/Stock_Opname/src/frontend/HistoryBarang.java</file>
+            <file>file:/D:/Book%20JTI/Magang%20proyek/Stock_Opname/src/frontend/FrmTambahBaru.java</file>
         </group>
     </open-files>
 </project-private>

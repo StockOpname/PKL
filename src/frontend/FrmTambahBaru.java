@@ -5,18 +5,23 @@
  */
 package frontend;
 
+import backend.DBHelper;
 import javax.swing.JOptionPane;
-
+import backend.TambahBaru;
+import frontend.BarangMasuk;
+import java.awt.HeadlessException;
+import java.sql.SQLException;
+import java.sql.Statement;
 /**
  *
  * @author Abyan
  */
-public class TambahBaru extends javax.swing.JFrame {
+public class FrmTambahBaru extends javax.swing.JFrame {
 
     /**
      * Creates new form TambahBaru
      */
-    public TambahBaru() {
+    public FrmTambahBaru() {
         initComponents();
     }
 
@@ -34,14 +39,14 @@ public class TambahBaru extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        TxtKodeBarang = new javax.swing.JTextField();
+        TxtNamaBarang = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         Btn_Smp = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
+        TxtSatuan = new javax.swing.JTextField();
+        TxtGudangMasuk = new javax.swing.JTextField();
+        TxtGudangKeluar = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -70,33 +75,68 @@ public class TambahBaru extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
         jLabel6.setText("Gudang Keluar");
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
-        jTextField1.setName(""); // NOI18N
-        jTextField1.setRequestFocusEnabled(false);
+        TxtKodeBarang.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
+        TxtKodeBarang.setName(""); // NOI18N
+        TxtKodeBarang.setRequestFocusEnabled(false);
+        TxtKodeBarang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtKodeBarangMouseClicked(evt);
+            }
+        });
+        TxtKodeBarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtKodeBarangActionPerformed(evt);
+            }
+        });
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
-        jTextField2.setName(""); // NOI18N
-        jTextField2.setRequestFocusEnabled(false);
+        TxtNamaBarang.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
+        TxtNamaBarang.setName(""); // NOI18N
+        TxtNamaBarang.setRequestFocusEnabled(false);
+        TxtNamaBarang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtNamaBarangMouseClicked(evt);
+            }
+        });
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton1.setText("+");
 
         Btn_Smp.setText("Simpan");
+        Btn_Smp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_SmpActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel1.setText("Tambah Baru");
 
-        jTextField6.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
-        jTextField6.setName(""); // NOI18N
-        jTextField6.setRequestFocusEnabled(false);
+        TxtSatuan.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
+        TxtSatuan.setName(""); // NOI18N
+        TxtSatuan.setRequestFocusEnabled(false);
+        TxtSatuan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtSatuanMouseClicked(evt);
+            }
+        });
 
-        jTextField9.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
-        jTextField9.setName(""); // NOI18N
-        jTextField9.setRequestFocusEnabled(false);
+        TxtGudangMasuk.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
+        TxtGudangMasuk.setName(""); // NOI18N
+        TxtGudangMasuk.setRequestFocusEnabled(false);
+        TxtGudangMasuk.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtGudangMasukMouseClicked(evt);
+            }
+        });
 
-        jTextField10.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
-        jTextField10.setName(""); // NOI18N
-        jTextField10.setRequestFocusEnabled(false);
+        TxtGudangKeluar.setFont(new java.awt.Font("Tahoma", 0, 25)); // NOI18N
+        TxtGudangKeluar.setName(""); // NOI18N
+        TxtGudangKeluar.setRequestFocusEnabled(false);
+        TxtGudangKeluar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TxtGudangKeluarMouseClicked(evt);
+            }
+        });
 
         jMenu1.setText("Menu");
 
@@ -178,14 +218,14 @@ public class TambahBaru extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField1)
+                            .addComponent(TxtNamaBarang)
+                            .addComponent(TxtKodeBarang)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(0, 42, Short.MAX_VALUE))
-                            .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField9)
-                            .addComponent(jTextField10))
+                            .addComponent(TxtSatuan, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(TxtGudangMasuk)
+                            .addComponent(TxtGudangKeluar))
                         .addGap(135, 135, 135))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Btn_Smp)
@@ -207,23 +247,23 @@ public class TambahBaru extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtKodeBarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtNamaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtSatuan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtGudangMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtGudangKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
@@ -277,6 +317,55 @@ public class TambahBaru extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_MenuQuitActionPerformed
 
+    private void Btn_SmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_SmpActionPerformed
+        // TODO add your handling code here:
+         if(TxtKodeBarang.getText().isEmpty()||TxtNamaBarang.getText().isEmpty()||TxtSatuan.getText().isEmpty()||TxtGudangMasuk.getText().isEmpty()||TxtGudangKeluar.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Data yang ditambahkan tidak boleh kosong!");
+        }else{
+            try{
+                Statement st = DBHelper.getKoneksi().createStatement();
+                int rs=st.executeUpdate("insert into inputbarang values("
+                    + "'"+TxtKodeBarang.getText()+"',"
+                    + "'"+TxtNamaBarang.getText()+"',"
+                    + "'"+TxtSatuan.getText()+"',"
+                    + "'"+TxtGudangMasuk.getText()+"',"
+                    + "'"+TxtGudangKeluar.getText()
+                    + "')"
+                );
+                st.close();
+                bersih();
+                JOptionPane.showMessageDialog(null, "Data berhasil disimpan...");
+            }catch(SQLException | HeadlessException e){
+                JOptionPane.showMessageDialog(null, "Keterangan error : "+e);
+            }
+        }
+
+    }//GEN-LAST:event_Btn_SmpActionPerformed
+
+    private void TxtKodeBarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtKodeBarangMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtKodeBarangMouseClicked
+
+    private void TxtNamaBarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtNamaBarangMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtNamaBarangMouseClicked
+
+    private void TxtSatuanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtSatuanMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtSatuanMouseClicked
+
+    private void TxtGudangMasukMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtGudangMasukMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtGudangMasukMouseClicked
+
+    private void TxtGudangKeluarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtGudangKeluarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtGudangKeluarMouseClicked
+
+    private void TxtKodeBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtKodeBarangActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtKodeBarangActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -307,7 +396,7 @@ public class TambahBaru extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TambahBaru().setVisible(true);
+                new FrmTambahBaru().setVisible(true);
             }
         });
     }
@@ -315,6 +404,11 @@ public class TambahBaru extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_Smp;
     private javax.swing.JMenuItem MenuQuit;
+    public javax.swing.JTextField TxtGudangKeluar;
+    public javax.swing.JTextField TxtGudangMasuk;
+    public javax.swing.JTextField TxtKodeBarang;
+    public javax.swing.JTextField TxtNamaBarang;
+    public javax.swing.JTextField TxtSatuan;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -331,10 +425,15 @@ public class TambahBaru extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
+
+    private void bersih() {
+        TxtKodeBarang.setText("");
+        TxtNamaBarang.setText("");
+        TxtSatuan.setText("");
+        TxtGudangMasuk.setText("");
+        TxtGudangKeluar.setText("");
+    }
+
+    
 }
